@@ -1,11 +1,8 @@
 # SCARA-Kinematics-Analysis
 This repository features a kinematic analysis of a 3-DOF SCARA robot. It includes DH parameter derivation, forward and inverse kinematics solvers in MATLAB, and trajectory tracking simulations in Simulink. The project demonstrates a complete workflow from mathematical modeling to following a square trajectory in a 3D workspace.
+
 PROJECT OVERVIEW
 ----------------
-This repository contains the complete kinematic analysis and 
-trajectory simulation for a 3-degree-of-freedom (3-DOF) SCARA 
-manipulator. The project covers theoretical DH parameter derivation, 
-numerical solvers in MATLAB, and model-based simulation in Simulink.
 
 1. MATHEMATICAL MODELING
 ------------------------
@@ -42,6 +39,9 @@ traversing four primary waypoints:
 - P2 (0.08, 0.32)
 - P3 (0.08, 0.08)
 - P4 (0.32, 0.08)
+
+  ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
+
 
 4. FILE STRUCTURE
 -----------------
