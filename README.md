@@ -9,10 +9,7 @@ PROJECT OVERVIEW
 The robot is modeled using the Denavit-Hartenberg (DH) convention 
 for a 3-revolute (RRR) joint configuration.
 
-Link (i),θi​,di​ (m),ai​ (m),αi​ (rad)
-1,θ1​,0.20,0.40,0
-2,θ2​,0.25,0.30,0
-3,θ3​,0.15,0.15,0
+<img width="1143" height="417" alt="image" src="https://github.com/user-attachments/assets/5a060910-cd13-48c2-9718-7fc774626aff" />
 
 Forward Kinematics Equations:
 X = 0.4*cos(q1) + 0.3*cos(q1+q2) + 0.15*cos(q1+q2+q3)
