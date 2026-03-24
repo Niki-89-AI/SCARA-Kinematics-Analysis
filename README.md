@@ -9,12 +9,10 @@ PROJECT OVERVIEW
 The robot is modeled using the Denavit-Hartenberg (DH) convention 
 for a 3-revolute (RRR) joint configuration.
 
-DH Parameter Table:
-Link (i) | theta_i  | d_i (m) | a_i (m) | alpha_i (rad)
--------------------------------------------------------
-1        | theta_1  | 0.20    | 0.40    | 0
-2        | theta_2  | 0.25    | 0.30    | 0
-3        | theta_3  | 0.15    | 0.15    | 0
+Link (i),θi​,di​ (m),ai​ (m),αi​ (rad)
+1,θ1​,0.20,0.40,0
+2,θ2​,0.25,0.30,0
+3,θ3​,0.15,0.15,0
 
 Forward Kinematics Equations:
 X = 0.4*cos(q1) + 0.3*cos(q1+q2) + 0.15*cos(q1+q2+q3)
@@ -41,7 +39,6 @@ traversing four primary waypoints:
 - P4 (0.32, 0.08)
 
   ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
-
 
 4. FILE STRUCTURE
 -----------------
