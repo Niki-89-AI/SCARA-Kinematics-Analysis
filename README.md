@@ -11,7 +11,7 @@ The system models the relationship between joint variables and the end-effector 
 
 ---
 
-⚙️ System Description
+⚙️ System Description  
 
 The SCARA robot consists of three rotational joints with fixed vertical displacement. The kinematic model is defined using Denavit–Hartenberg (DH) parameters.
 
@@ -122,7 +122,18 @@ This project bridges the gap between mathematical theory and physical simulation
  - MATLAB Robotics System Toolbox: Leveraged for coordinate transformations and handling homogeneous transformation matrices.
  - Simscape Multibody: Provides the physical simulation environment where the 3-DOF SCARA arm is modeled with Revolute Joints and rigid bodies to visualize movement in 3D.
 
----
+---  
+
+## 📊 Results
+
+### Workspace
+![Workspace](images/robotworkspace.jpg)
+
+### Robot Model
+![Model](images/Robot_model.jpg)
+
+### Forward Kinematics
+![FK](images/FK.jpg)
 
 📚 Key Concepts
 - Denavit–Hartenberg (DH) modeling
