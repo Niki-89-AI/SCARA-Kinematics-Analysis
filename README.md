@@ -130,7 +130,26 @@ The robot successfully follows a square path using inverse kinematics control.
 
 ## ▶️ How to Run
 
-1. Open MATLAB
-2. Run forward kinematics script:
-   ```matlab
-   HW3_FK.m
+1. Clone the Repository
+```bash
+git clone https://github.com/Niki-89-AI/SCARA-Kinematics-Analysis.git
+cd SCARA-Kinematics-Analysis
+
+2. Open MATLAB
+Launch MATLAB
+Set the current folder to the project directory
+Ensure all .m and .slx files are in the same workspace
+
+3. Run Forward Kinematics
+HW3_FK.m
+
+4. Run Inverse Kinematics
+IK_targetpos.m
+
+5. Run Simulink Model
+Open the Simulink file (SCARA_model.slx)
+
+
+🔗 Author
+Nikoletta Biri
+Arizona State University – AI (Robotics)
