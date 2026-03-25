@@ -1,57 +1,136 @@
-# SCARA-Kinematics-Analysis
-This repository features a kinematic analysis of a 3-DOF SCARA robot. It includes DH parameter derivation, forward and inverse kinematics solvers in MATLAB, and trajectory tracking simulations in Simulink. The project demonstrates a complete workflow from mathematical modeling to following a square trajectory in a 3D workspace.
 
-PROJECT OVERVIEW
-----------------
+# SCARA Kinematics Analysis 🤖
 
-1. MATHEMATICAL MODELING
-------------------------
-The robot is modeled using the Denavit-Hartenberg (DH) convention 
-for a 3-revolute (RRR) joint configuration.
+## 📌 Overview
+This project analyzes the forward and inverse kinematics of a SCARA (Selective Compliance Assembly Robot Arm) using MATLAB and Simulink.
 
-<img width="1143" height="417" alt="image" src="https://github.com/user-attachments/assets/5a060910-cd13-48c2-9718-7fc774626aff" />
+The system models the relationship between joint variables and the end-effector position, and validates the results through simulation.
 
-Forward Kinematics Equations:
-X = 0.4*cos(q1) + 0.3*cos(q1+q2) + 0.15*cos(q1+q2+q3)
-Y = 0.4*sin(q1) + 0.3*sin(q1+q2) + 0.15*sin(q1+q2+q3)
-Z = 0.60 m (Constant height for all joint configurations)
+---
 
-2. INVERSE KINEMATICS
----------------------
-The inverse kinematics problem is solved numerically using 
-MATLAB's 'vpasolve' function to determine joint angles for 
-target Cartesian coordinates.
+## ⚙️ System Description
 
-Verification Case:
-Target: X=0.7719, Y=0.3023, Z=0.60
-Result: theta_1=10 deg, theta_2=15 deg, theta_3=20 deg
+The SCARA robot consists of three rotational joints with fixed vertical displacement. The kinematic model is defined using Denavit–Hartenberg (DH) parameters.
 
-3. TRAJECTORY SIMULATION
-------------------------
-The system tracks a square trajectory in the Z=0.6 plane 
-traversing four primary waypoints:
-- P1 (0.32, 0.32)
-- P2 (0.08, 0.32)
-- P3 (0.08, 0.08)
-- P4 (0.32, 0.08)
+### DH Parameters:
+| Joint | θ (angle) | d (offset) | a (length) | α (twist) |
+|------|----------|-----------|-----------|-----------|
+| 1 | θ₁ | 0.2 m | 0.4 m | 0 |
+| 2 | θ₂ | 0.25 m | 0.3 m | 0 |
+| 3 | θ₃ | 0.15 m | 0.15 m | 0 |
+
+---
+
+## 🧮 Forward Kinematics
+
+The end-effector position is computed using homogeneous transformation matrices:
+
+T = A₁ · A₂ · A₃
+
+### Position Equations:
+- X = 0.4 cos(θ₁) + 0.3 cos(θ₁ + θ₂) + 0.15 cos(θ₁ + θ₂ + θ₃)
+- Y = 0.4 sin(θ₁) + 0.3 sin(θ₁ + θ₂) + 0.15 sin(θ₁ + θ₂ + θ₃)
+- Z = 0.6 m (constant)
+
+📌 The Z position remains constant due to the robot's structure.
+
+---
+
+## ✅ Validation
+
+The forward kinematics equations were validated using MATLAB:
+
+- For θ₁ = 0°, θ₂ = 0°, θ₃ = 0°:
+  - X = 0.85 m
+  - Y = 0 m
+  - Z = 0.6 m
+
+- For θ₁ = 10°, θ₂ = 15°, θ₃ = 20°:
+  - X ≈ 0.7719 m
+  - Y ≈ 0.3023 m
+  - Z = 0.6 m
+
+Results were verified using MATLAB scripts.
+
+---
+
+## 🧠 Workspace Analysis
+
+The robot workspace is a **planar annulus** located at:
+
+Z = 0.6 m
+
+- Maximum reach: 0.85 m
+
+This represents the reachable region of the end-effector in Cartesian space.
+
+---
+
+## 🖥️ Simulation (Simulink)
+
+A Simscape Multibody model was built in Simulink to simulate the SCARA robot.
+
+Features:
+- Joint inputs (θ₁, θ₂, θ₃)
+- Forward kinematics block
+- Scope visualization of X, Y, Z
+
+The simulation confirms analytical results.
+
+---
+
+## 🔄 Inverse Kinematics
+
+Inverse kinematics was implemented to compute joint angles for a desired end-effector position.
+
+### Example Target:
+(X, Y, Z) = (0.7719, 0.3023, 0.6)
+
+The corresponding joint angles were solved using MATLAB.
+
+---
+
+## 📐 Trajectory Planning
+
+The robot follows a square trajectory in Cartesian space:
+
+- P₁ = (0.32, 0.32, 0.60)
+- P₂ = (0.08, 0.32, 0.60)
+- P₃ = (0.08, 0.08, 0.60)
+- P₄ = (0.32, 0.08, 0.60)
+
+The inverse kinematics controller drives the end-effector through these points.
+
+---
+
+## 🎥 Demo
 
   ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
 
-4. FILE STRUCTURE
------------------
-- HW3_FK.m: Symbolic derivation of position equations.
-- IK_targetpos.m: Numerical IK solver script.
-- IK_System.slx: Simulink model for trajectory tracking.
-- square_trajectory.mat: Workspace data for the simulation.
-- HW_SCARA_Report.pdf: Detailed technical documentation.
+The robot successfully follows a square path using inverse kinematics control.
 
-5. HOW TO RUN
--------------
-1. Add all files to the MATLAB path.
-2. Run 'HW3_FK.m' to view the symbolic transformation matrices.
-3. Open 'IK_System.slx' and run the simulation to observe the 
-   robot following the square path.
+---
 
-------------------------------------------------------------
-Developed for RAS 545
-============================================================
+## 🛠️ Tech Stack
+- MATLAB
+- Simulink (Simscape Multibody)
+- Robotics Kinematics
+- Linear Algebra
+
+---
+
+## 📚 Key Concepts
+- Denavit–Hartenberg (DH) modeling
+- Homogeneous transformations
+- Forward & inverse kinematics
+- Workspace analysis
+- Trajectory planning
+
+---
+
+## ▶️ How to Run
+
+1. Open MATLAB
+2. Run forward kinematics script:
+   ```matlab
+   HW3_FK.m
