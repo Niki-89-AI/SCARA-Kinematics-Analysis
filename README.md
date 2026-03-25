@@ -3,7 +3,8 @@
 
  ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
 
-📌 Overview
+📌 Overview  
+
 This project analyzes the forward and inverse kinematics of a SCARA (Selective Compliance Assembly Robot Arm) using MATLAB and Simulink.
 
 The system models the relationship between joint variables and the end-effector position, and validates the results through simulation.
