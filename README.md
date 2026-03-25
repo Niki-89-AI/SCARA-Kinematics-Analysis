@@ -160,5 +160,6 @@ Open IK_System.slx. This model uses Simscape blocks to represent the physical li
 
 🔗 Author
 
-Nikoletta Biri
+Nikoletta Biri  
+
 Arizona State University – AI (Robotics)
