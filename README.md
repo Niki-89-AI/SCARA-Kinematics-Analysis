@@ -1,7 +1,7 @@
 
 🤖 Analytical and Model-Based Kinematic Study of a SCARA Manipulator
 
- ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
+![Simulation](images/robotgif.gif)
 
 📌 Overview  
 
