@@ -143,7 +143,6 @@ This project bridges the gap between mathematical theory and physical simulation
 
 Clone & Navigate:
 
-Bash
 git clone https://github.com/Niki-89-AI/SCARA-Kinematics-Analysis.git
 cd SCARA-Kinematics-Analysis
 
@@ -156,6 +155,8 @@ Run IK_targetpos.m to verify the joint angles for a specific target.
 
 Launch Simulation:
 Open IK_System.slx. This model uses Simscape blocks to represent the physical links. Press Run to open the Mechanics Explorer and visualize the 3D robot tracing the square path.
+
+
 
 🔗 Author
 Nikoletta Biri
