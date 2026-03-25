@@ -126,13 +126,13 @@ This project bridges the gap between mathematical theory and physical simulation
 
 ## 📊 Results
 
-### Workspace
+### SCARA Robot Diagram
 ![Workspace](images/robotworkspace.jpg)
 
 ### Robot Model
 ![Model](images/Robot_model.jpg)
 
-### Forward Kinematics
+### Forward Kinematics System
 ![FK](images/FK.jpg)
 
 📚 Key Concepts
