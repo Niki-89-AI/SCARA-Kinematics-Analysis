@@ -114,8 +114,8 @@ The robot successfully follows a square path using inverse kinematics control.
 ## 🛠️ Tech Stack
 - MATLAB
 - Simulink (Simscape Multibody)
-- Robotics Kinematics
-- Linear Algebra
+- Robotics System Toolbox
+- Symbolic Math Toolbox
 
 ---
 
@@ -128,27 +128,22 @@ The robot successfully follows a square path using inverse kinematics control.
 
 ---
 
-## ▶️ How to Run
+🚀 How to Run
 
-1. Clone the Repository
-```bash
-git clone https://github.com/Niki-89-AI/SCARA-Kinematics-Analysis.git
-cd SCARA-Kinematics-Analysis
+To ensure the simulation renders correctly, follow these steps:
 
-2. Open MATLAB
-Launch MATLAB
-Set the current folder to the project directory
-Ensure all .m and .slx files are in the same workspace
+Initialize Environment:
+Ensure the Robotics System Toolbox and Simscape are installed in your MATLAB Add-On Manager.
 
-3. Run Forward Kinematics
-HW3_FK.m
+Load Trajectory Data:
+Double-click square_trajectory.mat in the MATLAB Current Folder browser to load the waypoint variables into the Workspace.
 
-4. Run Inverse Kinematics
-IK_targetpos.m
+Execute Kinematic Scripts:
+Run HW3_FK.m to generate the symbolic position equations.
+Run IK_targetpos.m to solve for specific joint configurations.
 
-5. Run Simulink Model
-Open the Simulink file (SCARA_model.slx)
-
+Launch Simulation:
+Open IK_System.slx. You will see the Simscape blocks representing the RRR joint configuration. Press Run to open the Mechanics Explorer, where you can watch the 3D visualization of the arm tracing the square.
 
 🔗 Author
 Nikoletta Biri
