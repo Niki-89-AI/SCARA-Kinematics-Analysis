@@ -1,18 +1,18 @@
 
-# SCARA Kinematics Analysis 🤖
+SCARA Kinematics Analysis 🤖
 
-## 📌 Overview
+📌 Overview
 This project analyzes the forward and inverse kinematics of a SCARA (Selective Compliance Assembly Robot Arm) using MATLAB and Simulink.
 
 The system models the relationship between joint variables and the end-effector position, and validates the results through simulation.
 
 ---
 
-## ⚙️ System Description
+⚙️ System Description
 
 The SCARA robot consists of three rotational joints with fixed vertical displacement. The kinematic model is defined using Denavit–Hartenberg (DH) parameters.
 
-### DH Parameters:
+DH Parameters:
 | Joint | θ (angle) | d (offset) | a (length) | α (twist) |
 |------|----------|-----------|-----------|-----------|
 | 1 | θ₁ | 0.2 m | 0.4 m | 0 |
@@ -21,13 +21,13 @@ The SCARA robot consists of three rotational joints with fixed vertical displace
 
 ---
 
-## 🧮 Forward Kinematics
+🧮 Forward Kinematics
 
 The end-effector position is computed using homogeneous transformation matrices:
 
 T = A₁ · A₂ · A₃
 
-### Position Equations:
+Position Equations:
 - X = 0.4 cos(θ₁) + 0.3 cos(θ₁ + θ₂) + 0.15 cos(θ₁ + θ₂ + θ₃)
 - Y = 0.4 sin(θ₁) + 0.3 sin(θ₁ + θ₂) + 0.15 sin(θ₁ + θ₂ + θ₃)
 - Z = 0.6 m (constant)
@@ -36,7 +36,7 @@ T = A₁ · A₂ · A₃
 
 ---
 
-## ✅ Validation
+✅ Validation
 
 The forward kinematics equations were validated using MATLAB:
 
@@ -54,7 +54,7 @@ Results were verified using MATLAB scripts.
 
 ---
 
-## 🧠 Workspace Analysis
+🧠 Workspace Analysis
 
 The robot workspace is a **planar annulus** located at:
 
@@ -66,7 +66,7 @@ This represents the reachable region of the end-effector in Cartesian space.
 
 ---
 
-## 🖥️ Simulation (Simulink)
+🖥️ Simulation (Simulink)
 
 A Simscape Multibody model was built in Simulink to simulate the SCARA robot.
 
@@ -79,18 +79,18 @@ The simulation confirms analytical results.
 
 ---
 
-## 🔄 Inverse Kinematics
+🔄 Inverse Kinematics
 
 Inverse kinematics was implemented to compute joint angles for a desired end-effector position.
 
-### Example Target:
+Example Target:
 (X, Y, Z) = (0.7719, 0.3023, 0.6)
 
 The corresponding joint angles were solved using MATLAB.
 
 ---
 
-## 📐 Trajectory Planning
+📐 Trajectory Planning
 
 The robot follows a square trajectory in Cartesian space:
 
@@ -103,7 +103,7 @@ The inverse kinematics controller drives the end-effector through these points.
 
 ---
 
-## 🎥 Demo
+🎥 Demo
 
   ![robotgif](https://github.com/user-attachments/assets/2c9ca12d-37fd-41a4-a51f-8f17339e3217)
 
@@ -111,15 +111,17 @@ The robot successfully follows a square path using inverse kinematics control.
 
 ---
 
-## 🛠️ Tech Stack
-- MATLAB
-- Simulink (Simscape Multibody)
-- Robotics System Toolbox
-- Symbolic Math Toolbox
+🛠 Technical Implementation
+
+This project bridges the gap between mathematical theory and physical simulation using a multi-tool approach:
+
+ - Symbolic Math Toolbox: Used to derive the analytical Forward Kinematics (FK) and Inverse Kinematics (IK) equations.
+ - MATLAB Robotics System Toolbox: Leveraged for coordinate transformations and handling homogeneous transformation matrices.
+ - Simscape Multibody: Provides the physical simulation environment where the 3-DOF SCARA arm is modeled with Revolute Joints and rigid bodies to visualize movement in 3D.
 
 ---
 
-## 📚 Key Concepts
+📚 Key Concepts
 - Denavit–Hartenberg (DH) modeling
 - Homogeneous transformations
 - Forward & inverse kinematics
@@ -130,20 +132,30 @@ The robot successfully follows a square path using inverse kinematics control.
 
 🚀 How to Run
 
-To ensure the simulation renders correctly, follow these steps:
+1. Prerequisites
+   
+    Ensure you have the following installed in MATLAB:
+    Robotics System Toolbox
+    Simscape & Simscape Multibody
+    Symbolic Math Toolbox
 
-Initialize Environment:
-Ensure the Robotics System Toolbox and Simscape are installed in your MATLAB Add-On Manager.
+2. Execution Steps
 
-Load Trajectory Data:
-Double-click square_trajectory.mat in the MATLAB Current Folder browser to load the waypoint variables into the Workspace.
+Clone & Navigate:
 
-Execute Kinematic Scripts:
-Run HW3_FK.m to generate the symbolic position equations.
-Run IK_targetpos.m to solve for specific joint configurations.
+Bash
+git clone https://github.com/Niki-89-AI/SCARA-Kinematics-Analysis.git
+cd SCARA-Kinematics-Analysis
+
+Setup Workspace:
+Open MATLAB and add this folder to your path. Double-click square_trajectory.mat to load the trajectory waypoints into your workspace.
+
+Run Kinematic Solvers:
+Run HW3_FK.m to see the derived position equations in the Command Window.
+Run IK_targetpos.m to verify the joint angles for a specific target.
 
 Launch Simulation:
-Open IK_System.slx. You will see the Simscape blocks representing the RRR joint configuration. Press Run to open the Mechanics Explorer, where you can watch the 3D visualization of the arm tracing the square.
+Open IK_System.slx. This model uses Simscape blocks to represent the physical links. Press Run to open the Mechanics Explorer and visualize the 3D robot tracing the square path.
 
 🔗 Author
 Nikoletta Biri
